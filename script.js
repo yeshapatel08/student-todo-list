@@ -16,12 +16,20 @@ function addTask() {
     // Put the task inside the list item
     li.textContent = task;
 
+    let deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.type = "button";
+    deleteBtn.classList.add("delete-btn");
+    li.appendChild(deleteBtn);
+    deleteBtn.addEventListener("click",function(){
+        li.remove();
+    })
+    
     // Add the list item to the task list
     taskList.appendChild(li);
 
     // Clear the input box
     taskInput.value = "";
 }
-
 // Detect button click
 addButton.addEventListener("click", addTask);
